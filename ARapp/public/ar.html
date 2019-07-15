@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="theme-color" content="#5c1d5c">
+    <meta name="background-color" content="#5c1d5c">
+    <title>Test</title>
+    <link type="text/css" rel="stylesheet" href="css/normalize.css">
+    <link type="text/css" rel="stylesheet" href="css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <link rel="manifest" href="manifest.json">
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-auth.js"></script>
+</head>
+
+<body>
+<script src="js/bundle.js"></script>
+<a id="menuToggle" >&#8285;</a>
+<div id="notifications"></div>
+<div id="locationDataMenu" class="hide">
+    <h3 id="compass"></h3>
+    <h3 id="venueList"></h3>
+    <h3 id="subject"></h3>
+    <h3 id="test"></h3>
+</div>
+<video id="camera" autoplay>Camera Unavailable</video>
+<noscript><p>This Application Requires JavaScript To Be Enabled</p></noscript>
+<aside id="venueInfo" class="mdc-drawer mdc-drawer--temporary mdc-typography hide">
+    <div class="mdc-drawer__drawer">
+        <header class="mdc-drawer__header">
+            <div class="mdc-drawer__header-content">
+                <h1 id="venueName"></h1>
+                <h1 id="close">X</h1>
+            </div>
+
+        </header>
+        <div id="" class="mdc-drawer__content">
+            <p id="description"></p>
+            <p id="rating"></p>
+
+            <i id="shareButton" class="material-icons button">share</i>
+            <i id="saveButton" class="material-icons button">save</i>
+            <div id="friendsList" class="hide"></div>
+        </div>
+    </div>
+</aside>
+</body>
+</html>

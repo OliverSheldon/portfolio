@@ -1,0 +1,19 @@
+{
+  "venues": {
+    "1": {
+      "name": "Mellor Building",
+      "location": [53.010270, -2.180104],
+      "rating": 5,
+      "description": "Welcome to GradEx 2018!"
+    }
+  },
+  "friendLink": {
+    "1": {
+      "uid1": "YqvcSTToHIdcGXaxNvZXi1SR5xk1",
+      "uid2": "9FcmlZZ7hdXfutAu1wQwSXFOYZc2"
+    }
+  },
+  "shared": {
+
+  }
+}

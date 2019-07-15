@@ -1,0 +1,31 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/",
+        "function": "app"
+      },
+      {
+        "source": "/ar",
+        "function": "app"
+      },
+      {
+        "source": "/user/*/friends",
+        "function": "app"
+      },
+      {
+        "source": "/share",
+        "function": "app"
+      }
+    ]
+  },
+  "database": {
+    "rules": "database.rules.json"
+  }
+}

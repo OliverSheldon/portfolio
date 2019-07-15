@@ -1,0 +1,33 @@
+{
+    "name": "Venue AR",
+    "short_name":"Venue AR",
+    "start_url": "/ar.html",
+    "description": "Find local venues using AR",
+    "lang":"en",
+    "orientation": "portrait-primary",
+    "icons": [{
+        "src": "favicon/128x128.png",
+        "type": "image/png",
+        "sizes": "128x128"
+      }, {
+          "src": "favicon/144x144.png",
+        "type": "image/png",
+        "sizes": "144x144"
+        
+      }, {
+        "src": "favicon/152x152.png",
+        "type": "image/png",
+        "sizes": "152x152"
+      }, {
+        "src": "favicon/192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      }, {
+        "src": "favicon/512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }],
+    "theme_color": "#5c1d5c",
+    "background_color": "#5c1d5c",
+    "display": "standalone"    
+}
