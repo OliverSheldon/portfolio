@@ -1,7 +1,7 @@
 # portfolio
-Examples of my work:
+Examples of my work
 
-oliversheldon.co.uk
+University:
 
 ARapp - Augmented Reality Application - venue-ar.firebaseapp.com
 
@@ -10,3 +10,9 @@ Pizza Time - Pizza ordering site (similar to just eat)
 Pizza Time - MVC (same as above but using MVC rather than an API)
 
 Welcome To Staffs - Progressive Web App (PWA)
+
+Personal Projects:
+
+oliversheldon.co.uk -  (also a PWA)
+
+MallardManage - The begginings of my own CMS
