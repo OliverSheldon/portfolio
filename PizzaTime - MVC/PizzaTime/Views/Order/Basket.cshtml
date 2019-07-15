@@ -1,0 +1,96 @@
+﻿@model PizzaTime.Models.Basket
+@{
+    ViewBag.Title = "Basket";
+}
+<h2>Basket</h2>
+
+@if (Model.Pizzas != null)
+{
+    <div style="width:50%; float:right;">
+        <h3>Select Delivery Type:</h3>
+        <form method="post">
+            <label for="Collection">Collection</label>
+            @if (Model.Delivery == "Collection")
+            {
+                <input type="radio" name="Collection" checked="checked" />
+            }
+            else
+            {
+                <input type="radio" name="Collection" />
+            }
+            <label for="Delivery">Delivery</label>
+            @if (Model.Delivery == "Delivery")
+            {
+                <input type="radio" name="Delivery" checked="checked" />
+            }
+            else
+            {
+                <input type="radio" name="Delivery" />
+            }
+            <input type="submit" name="submit" value="Submit" />
+        </form>
+        
+        @if (Model.Voucher != null && Model.Voucher.VoucherMessage != null)
+        {
+        <div>
+            <h4>@Model.Voucher.VoucherMessage</h4>
+        </div>
+        }
+        @if (ViewBag.TotalCost != null)
+        {
+        <div>
+            @if (ViewBag.OldCost != null)
+            {
+                <h4>Cost: @ViewBag.OldCost</h4>
+            }
+            @if (ViewBag.Saving != null)
+            {
+                <h4>Voucher Savings: -@ViewBag.Saving</h4>
+            }
+            <h4>Total Cost: @Model.GetTotalCost()</h4>
+        </div>
+        }
+        @if (Model.Delivery != null)
+        {
+            <form method="post">
+                <input type="submit" name="Order" value="Complete Order" />
+                <input type="submit" name="Save" value="Save for Later" />
+            </form>
+        }
+        @if (ViewBag.Confirmation != null)
+        {
+            <h4>@ViewBag.Confirmation</h4>
+        }
+    </div>
+    
+    
+    <div style="width:50%;">
+        <h3>Basket</h3>
+        @foreach (var pizza in Model.Pizzas)
+        {
+            <div>
+                <h4>@pizza.Size - @pizza.Name - £@pizza.GetTotalCost()</h4>
+                <ul>
+                    @foreach (var topping in pizza.Toppings)
+                    {
+                        if (topping.IsDuplicate)
+                        {
+                            <li>Extra @topping.Name</li>
+                        }
+                        else
+                        {
+                            <li>@topping.Name</li>
+                        }
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+    
+    
+}
+else
+{
+    <p>Your Basket is empty</p>
+    <a href="/Order/Menu">Continue Shopping</a>
+}

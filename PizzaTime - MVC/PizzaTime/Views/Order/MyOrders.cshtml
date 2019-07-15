@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "MyOrders";
+}
+
+<h2>MyOrders</h2>
+
+<h3>Incomplete Orders</h3>
+    @foreach(var basket in ViewBag.Incomplete)
+    {
+        <p>Order Number: @basket.BasketId <a href="/Order/Basket?BasketId=@basket.BasketId">Continue Shopping</a></p>
+        <br />
+    }
+<hr />
+<h3>Completed Orders</h3>
+@foreach (var basket in ViewBag.Complete)
+{
+    <p>Order Number: @basket.BasketId</p>
+    <br />
+}

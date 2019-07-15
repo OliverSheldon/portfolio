@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Menu";
+}
+
+<h2>Menu</h2>
+<form method="post">
+    <select name="basePizza">
+    @foreach (var pizza in ViewBag.pizzaList)
+    {
+        <option value="@pizza">@pizza</option>
+    }
+    </select>
+    <select name="baseSize">
+        @foreach (var size in ViewBag.sizeList)
+        {
+            <option value="@size">@size</option>
+        }
+    </select>
+    <br />
+    @foreach(var topping in ViewBag.toppingList)
+    {
+        <input name="toppings" type="checkbox" value="@topping" /> @topping
+    }
+    <br />
+    <input type="submit" value="Add to Basket" />
+</form>
+
+<div style="width:50%; float:right;">
+    <form method="post">
+        <input type="text" name="voucherCode" />
+        <label for="voucherCode">Enter Voucher Code</label>
+        <input type="submit" value="Enter Code" />
+    </form>
+    @if (ViewBag.VoucherMessage != null)
+    {
+        <p>@ViewBag.VoucherMessage</p>
+    }
+</div>
+
+@if (ViewBag.Basket != null)
+{
+    <div style="width:50%;">
+        <h3>Basket</h3>
+        @foreach(var pizza in ViewBag.Basket.Pizzas)
+        {
+            <div>
+                <h4>@pizza.Size - @pizza.Name - £@pizza.GetTotalCost()</h4>
+                <ul>
+            @foreach (var topping in pizza.Toppings)
+            {
+                if (topping.IsDuplicate)
+                {
+                    <li>Extra @topping.Name</li>
+                }
+                else
+                {
+                    <li>@topping.Name</li>
+                }
+            }
+                </ul>
+            </div>
+        }
+
+        @if (ViewBag.TotalCost != null)
+        {
+        <div>
+            <h4>Total Cost: @ViewBag.TotalCost</h4>
+        </div>
+        }
+    </div>
+}
+<div style="width:50%;">
+    <form method="post" action="Basket">
+        <input type="submit" value="Checkout" />
+    </form>
+</div>
