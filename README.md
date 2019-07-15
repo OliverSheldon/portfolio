@@ -15,4 +15,4 @@ Personal Projects:
 
 https://oliversheldon.co.uk - My live portfolio (also a PWA & has perfect scores in lighthouse testing)
 
-MallardManage - The begginings of my own CMS
+MallardManage - The beginnings of my own CMS
