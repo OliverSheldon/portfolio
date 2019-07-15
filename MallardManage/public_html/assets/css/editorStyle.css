@@ -1,0 +1,67 @@
+[onclick="parent.editThis(this)"] .inner:hover .editHover{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.6);
+}
+
+[data-comp-edit="true"]{
+    z-index: 2;
+}
+
+.gridGuide{
+    position: absolute;
+    width: 100%;
+    height: calc(100% + 30px);
+    margin: -15px 0;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: lightgreen;
+}
+
+.gridGuide [class*="col"]{
+    display: inline-block;
+    height: 100%;
+}
+
+.gridGuide [class*="col"] span{
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: lightblue;
+}
+
+.resizing{
+    
+}
+
+.resizing [class*="handle"]{
+    text-align: center;
+    color: white;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: grey;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: ew-resize;
+}
+
+.resizing .handleLeft{
+    left: -17px;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.resizing .handleRight{
+    right: -17px;
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}

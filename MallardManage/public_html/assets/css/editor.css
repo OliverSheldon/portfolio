@@ -1,0 +1,126 @@
+*{
+    position: relative;
+}
+
+#screenSize{
+    color: white;
+    text-transform: capitalize;
+    border: 1px solid white;
+}
+
+#editorContainer{
+    height: calc(100vh - 42px);
+}
+
+.editorMode{
+    margin: 42px 0 0 0;
+    background-color: #999;
+    max-height: 100vh;
+}
+
+#viewport{
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border: none;
+}
+
+/* Editor Start */
+.mobWidth{
+    width: 575px !important;
+}
+
+.mobLWidth{
+    width: 767px !important;
+}
+
+.tabWidth{
+    width: 991px !important;
+}
+
+.deskWidth{
+    width: auto;
+}
+
+#editorPanel, #editDone, #editType, #textEditorUI{
+    position: fixed;
+    width: 100%;
+    height: 42px;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    padding: 5px;
+    z-index: 1000000;
+}
+
+#editType, #textEditorUI{
+    width: 100vw;
+    height: 100vh;
+}
+
+#textEditorUI .container{
+    height: calc(100% - 42px);
+}
+
+#editType .card{
+    width: 320px;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+}
+
+#textEditorUI .card, #textEditorUI .card #textEditorSettings{
+    width: 100%;
+    height: 100%;
+}
+
+#textEditorUI .card{
+    padding: 15px;
+}
+
+#textEditorUI .card code{
+    color: inherit;
+    height: 100%;
+    padding-left: 0;
+    border-radius: 0;
+    border-right: 0.5px solid #ddd;
+    overflow-y: scroll;
+}
+
+#textEditorUI .card code > *{
+    max-width: none;
+    width: 100% !important;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0 !important;
+    display: inline-block;
+}
+
+#textEditorUI .inner{
+    border: 0;
+    padding: 15px;
+    height: auto;
+}
+
+#editDone{
+    top:auto;
+    bottom: 0;
+}
+
+[data-comp-edit="true"]{
+    border: 1px solid #666;
+}
+
+
+.bold{
+    font-weight: bold;
+}
+
+.italic{
+    font-style: italic;
+}
