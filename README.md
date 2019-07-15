@@ -13,6 +13,6 @@ Welcome To Staffs - Progressive Web App (PWA)
 
 Personal Projects:
 
-https://oliversheldon.co.uk -  (also a PWA)
+https://oliversheldon.co.uk - My live portfolio (also a PWA & has perfect scores in lighthouse testing)
 
 MallardManage - The begginings of my own CMS
