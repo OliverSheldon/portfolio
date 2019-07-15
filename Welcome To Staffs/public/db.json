@@ -1,0 +1,143 @@
+{
+  "timetables":{
+    "2018":{
+      "5":{
+        "8":{
+          "events": {
+            "0": {
+              "module": "Design for Mobile",
+              "name": "Part B – Implementation / Testing Due",
+              "type": "Assignment",
+              "time": "0900"
+            },
+            "1":{
+              "module": "Design for Mobile",
+              "name": "Research Report Due",
+              "type": "Assignment",
+              "time": "1500"
+            },
+            "2":{
+              "module": "Design for Mobile",
+              "name": "Part B – Demonstration",
+              "type": "Assignment",
+              "time": "1707"
+            },
+            "3":{
+              "module": "N/A",
+              "name": "Freedom",
+              "type": "N/A",
+              "time": "1724"
+            }
+          }
+        },
+        "9":{
+          "events": {
+            "0": {
+              "module": "FYP",
+              "name": "Viva",
+              "type": "Assignment",
+              "time": "1300"
+            }
+          }
+        },
+        "10":{
+          "events": {
+            "0": {
+              "module": "Design for Mobile",
+              "name": "Part B – Implementation / Testing Due",
+              "type": "Assignment",
+              "time": "0900"
+            },
+            "1":{
+              "module": "Design for Mobile",
+              "name": "Research Report Due",
+              "type": "Assignment",
+              "time": "1500"
+            },
+            "2":{
+              "module": "Design for Mobile",
+              "name": "Part B – Demonstration",
+              "type": "Assignment",
+              "time": "1707"
+            },
+            "3":{
+              "module": "N/A",
+              "name": "Freedom",
+              "type": "N/A",
+              "time": "1724"
+            }
+          }
+        }
+      }
+    }
+  },
+  "locations":{
+    "type": {
+      "uni": {
+        "0": {
+          "name":"Mellor Building",
+          "lat": "53.010051",
+          "long": "-2.180436"
+        },
+        "1": {
+          "name":"Cadman Building",
+          "lat": "53.009691",
+          "long": "-2.181793"
+        },
+        "2": {
+          "name":"Science Center",
+          "lat": "53.007497",
+          "long": "-2.177528"
+        }
+      },
+      "union": {
+        "0": {
+          "name":"Student's Union",
+          "lat": "53.009646",
+          "long": "-2.179979"
+        },
+        "1": {
+          "name":"GreenPad",
+          "lat": "53.009721",
+          "long": "-2.180143"
+        }
+      },
+      "shop": {
+        "0": {
+          "name":"LRV / Verve",
+          "lat": "53.007908",
+          "long": "-2.175164"
+        },
+        "1": {
+          "name":"Leek Road Union Shop",
+          "lat": "53.008008",
+          "long": "-2.175635"
+        },
+        "2": {
+          "name":"College Road Union Shop",
+          "lat": "53.009591",
+          "long": "-2.180074"
+        },
+        "3": {
+          "name":"The Ember Lounge",
+          "lat": "53.009543",
+          "long": "-2.179753"
+        }
+      }
+    }
+  },
+  "events":{
+    "0":{
+      "name":"Last Demo",
+      "date":"10/05/2018",
+      "time":"17:07",
+      "location":"Stoke"
+    },
+    "1":{
+      "name":"Curry",
+      "date":"11/05/2018",
+      "time":"17:00",
+      "location":"Stoke"
+    }
+  }
+}
