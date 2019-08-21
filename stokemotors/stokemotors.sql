@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 21, 2019 at 06:31 AM
--- Server version: 10.1.8-MariaDB
--- PHP Version: 5.6.14
+-- Generation Time: Aug 21, 2019 at 05:51 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.2.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -72,20 +74,21 @@ INSERT INTO `make` (`makeID`, `make`, `badge_img`) VALUES
 CREATE TABLE `model` (
   `modelID` int(11) NOT NULL,
   `model` varchar(100) NOT NULL,
-  `year` year(4) NOT NULL
+  `year` year(4) NOT NULL,
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `model`
 --
 
-INSERT INTO `model` (`modelID`, `model`, `year`) VALUES
-(1, 'Fiesta', 2011),
-(2, 'Transit', 2012),
-(3, 'Dispatch', 2013),
-(4, 'C3', 2014),
-(5, 'Roadster', 2015),
-(6, 'Prius', 2016);
+INSERT INTO `model` (`modelID`, `model`, `year`, `image`) VALUES
+(1, 'Fiesta', 2011, 'fordFiesta.jpg'),
+(2, 'Transit', 2012, 'fordTransit.png'),
+(3, 'Dispatch', 2013, 'citroenDispatch.jpg'),
+(4, 'C3', 2014, 'citroenC3.jpg'),
+(5, 'Roadster', 2015, 'teslaRoadster.jpg'),
+(6, 'Prius', 2016, 'toyotaPrius.jpg');
 
 -- --------------------------------------------------------
 
@@ -130,7 +133,10 @@ CREATE TABLE `vehicle` (
 INSERT INTO `vehicle` (`vehicleID`, `typeID`, `makeID`, `modelID`, `fuelID`, `wheels`, `doors`, `price`) VALUES
 (1, 1, 1, 1, 1, 4, 5, 14572.99),
 (2, 2, 1, 2, 2, 4, 4, 10417.5),
-(3, 1, 2, 4, 1, 4, 5, 12091.37);
+(3, 1, 2, 4, 1, 4, 5, 12091.37),
+(4, 2, 2, 3, 2, 4, 4, 11795),
+(5, 1, 3, 5, 3, 4, 4, 250000),
+(6, 1, 4, 6, 4, 4, 4, 23449);
 
 --
 -- Indexes for dumped tables
@@ -179,26 +185,32 @@ ALTER TABLE `vehicle`
 --
 ALTER TABLE `fuel`
   MODIFY `fuelID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `make`
 --
 ALTER TABLE `make`
   MODIFY `makeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `model`
 --
 ALTER TABLE `model`
   MODIFY `modelID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `type`
 --
 ALTER TABLE `type`
   MODIFY `typeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `vehicle`
 --
 ALTER TABLE `vehicle`
-  MODIFY `vehicleID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `vehicleID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
