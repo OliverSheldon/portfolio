@@ -1,0 +1,179 @@
+body{
+    font-family: sans-serif;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+}
+
+header, main, main > section, footer{
+    padding: 15px;
+}
+
+body > header{
+    min-height: 100px;
+    background-color: inherit;
+}
+
+main{
+    background-color: white;
+    color: black;
+}
+
+main header.search{
+    width: 100%;
+}
+
+main header.search article{
+    margin-bottom: 15px;
+}
+
+main header.search .card{
+    height: 100%;
+}
+main header.search .card header, main aside header{
+    background-color: rgba(0,0,0,0.75);
+    color: white;
+}
+
+main aside header{
+     margin: -5px;
+}
+
+main header.search picture{
+    text-align: center;
+}
+
+main header.search img{
+    height: 150px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+main aside .inner{
+    min-height: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+ul#filters{
+    list-style: none;
+    padding: 0;
+} 
+
+ul#filters li{
+    margin: 0 -5px;
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+ul#filters li > *{
+    display: block;
+    padding: 10px;
+}
+
+main section{
+    position: relative;
+    height: 100%;
+}
+
+main section > header{
+    height: 100px;
+}
+
+main section .inner{
+    height: calc(100% - 200px);
+}
+
+main section .inner > div{
+    height: 100%;
+}
+
+main section article{
+    height: calc(50% - 30px);
+}
+
+main section article, main aside{
+    margin-bottom: 30px;
+}
+
+main section article .card{
+    height: 250px;
+    padding: 15px;
+}
+
+main section article .card.hero picture{
+    display: block;
+    height: 100%;
+    position: relative;
+}
+
+/*main section article .card.hero picture img{
+    height: inherit;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}*/
+
+main section article .card.hero picture img{
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+main section article .card.hero header, main section article .card.hero footer{
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(0,0,0,0.75);
+    color: white;
+    width: 100%;
+    margin: 0 -15px;
+}
+
+main section article .card.hero header{
+    top: 0;
+}
+
+main section article .card.hero footer{
+    bottom: 0;
+}
+
+body > footer{
+    height: 60px;
+}
+
+
+@media only screen and (max-width:575px){
+    main section .inner{
+        height: auto;
+        min-height: calc(100% - 100px);
+    }
+    
+    main section .inner .row.hidden{
+        display: flex;
+    }
+    
+    main section article .card.hero picture, main section article .card.hero picture img{
+        max-width: none;
+        width: 100%;
+        max-height: 100%;
+        text-align: center;
+    }
+    
+    main section article .card.hero picture img{
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        position: relative;
+        left: auto;
+        right: auto;
+        transform: none;
+    }
+}
+
+.hidden{
+    overflow: hidden;
+}
