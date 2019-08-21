@@ -1,6 +1,6 @@
 <?php
 require_once(dirname(__FILE__) . "/../db/class.Database.php");
-require_once("/class/class.vehicle.php");
+require_once(dirname(__FILE__) . "/class.vehicle.php");
 
 class Search{
     
@@ -25,6 +25,7 @@ class Search{
                     'type',
                     'model',
                     'year',
+                    'image',
                     'make',
                     'badge_img',
                     'fuel'
@@ -80,6 +81,7 @@ class Search{
                     'type',
                     'model',
                     'year',
+                    'image',
                     'make',
                     'badge_img',
                     'fuel'
@@ -131,7 +133,18 @@ class Search{
     public function getType($type){
         $params = array(
             'table' => 'vehicle',
-            'fields' => array('*'),
+            'fields' => array(
+                    'wheels',
+                    'doors',
+                    'price',
+                    'type',
+                    'model',
+                    'year',
+                    'image',
+                    'make',
+                    'badge_img',
+                    'fuel'
+                ),
             'joins' => array(
                 array(
                     'join'=>'type',
@@ -309,6 +322,28 @@ class Search{
                 );
             }
         return $this->vehicleList($this->db->select($params));
+    }
+    
+     public function getFuel(){
+            $params = array(
+                'table' => 'fuel',
+                'fields' => array(
+                    'fuel'
+                )
+            );
+
+        return $this->db->select($params);
+    }
+    
+     public function getMakes(){
+            $params = array(
+                'table' => 'make',
+                'fields' => array(
+                    'make'
+                )
+            );
+
+        return $this->db->select($params);
     }
     
     
