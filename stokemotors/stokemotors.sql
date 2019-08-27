@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 21, 2019 at 05:51 PM
+-- Generation Time: Aug 27, 2019 at 05:53 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.2.15
 
@@ -135,7 +135,7 @@ INSERT INTO `vehicle` (`vehicleID`, `typeID`, `makeID`, `modelID`, `fuelID`, `wh
 (2, 2, 1, 2, 2, 4, 4, 10417.5),
 (3, 1, 2, 4, 1, 4, 5, 12091.37),
 (4, 2, 2, 3, 2, 4, 4, 11795),
-(5, 1, 3, 5, 3, 4, 4, 250000),
+(5, 1, 3, 5, 3, 4, 2, 250000),
 (6, 1, 4, 6, 4, 4, 4, 23449);
 
 --
