@@ -5,8 +5,6 @@ $search = new Search();
 
 $vehicleList;
 
-//var_dump($vehicle);
-//echo "<br><br>";
 if($_GET){
     $filters = explode("&",$_SERVER['QUERY_STRING']);
 
@@ -14,7 +12,6 @@ if($_GET){
 }else{
     $vehicleList = $search->getAll();
 }
-
 ?>
 
 <!Doctype html>
@@ -74,70 +71,91 @@ if($_GET){
                                 </article>
                             </div>
                     </header>
-                    <aside class="col-sm-3">
-                        <div class="inner">
-                            <header>Filter</header>
-                            <ul id="filters">
-                                <li><a href="./">Reset Filters</a></li>
-                                <li>
-                                    <span>
-                                        <span>Fuel</span>
-                                        <select id="fuel" onchange="addFilter(this);">
-                                            <option selected></option>
-                                            <?php
-                                            foreach($search->getFuel() as $fuel){
-                                                echo '<option value="'.$fuel['fuel'].'">'.$fuel['fuel'].'</option>';
+                    <div class="col-12" id="carFilters">
+                        <div class="row">
+                            <aside class="col-md-4 col-lg-3">
+                                <div class="inner">
+                                    <header>Filter</header>
+                                    <ul id="filters">
+                                        <li><a href="./">Reset Filters</a></li>
+                                        <li>
+                                            <span>
+                                                <span>Fuel</span>
+                                                <select id="fuel" onchange="addFilter(this);">
+                                                    <option selected></option>
+                                                    <?php
+                                                    foreach($search->getFuel() as $fuel){
+                                                        echo '<option value="'.$fuel['fuel'].'">'.$fuel['fuel'].'</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <span>Make</span>
+                                                <select id="make" onchange="addFilter(this);">
+                                                    <option selected></option>
+                                                    <?php
+                                                    foreach($search->getMakes() as $make){
+                                                        echo '<option value="'.$make['make'].'">'.$make['make'].'</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <span>Doors</span>
+                                                <select id="doors" onchange="addFilter(this);">
+                                                    <option selected></option>
+                                                    <?php
+                                                    
+                                                    foreach($search->getDoors() as $doors){
+                                                        echo '<option value="'.$doors['doors'].'">'.$doors['doors'].'</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <span>Price</span>
+                                                <select id="price" onchange="orderBy(this);">
+                                                    <option selected></option>
+                                                    <option value="ASC">Low - High</option>
+                                                    <option value="DESC">High - low</option>
+                                                </select>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </aside>
+                            <section class="col-md-8 col-lg-9">
+                                <div class="inner">
+                                    <div id="searchResults" class="row">
+                                        <?php
+                                        if($vehicleList != null){
+                                            foreach($vehicleList as $vehicle){
+                                                echo '<article class="col-md-6 col-lg-4">';
+                                                echo '<a href="./vehicleDetails.php?v='.$vehicle->vehicleID.'">';
+                                                echo '<div class="card hero">';
+                                                echo '<header>'.$vehicle->make.' '.$vehicle->model.'</header>';
+                                                echo '<picture><img src="img/'.$vehicle->image.'" alt="'.$vehicle->make.' '.$vehicle->model.'"></picture>';
+                                                echo '<footer>£'.$vehicle->getPrice().'</footer>';
+                                                echo '</div>';
+                                                echo '</a>';
+                                                echo '</article>';
                                             }
-                                            ?>
-                                        </select>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span>
-                                        <span>Make</span>
-                                        <select id="make" onchange="addFilter(this);">
-                                            <option selected></option>
-                                            <?php
-                                            foreach($search->getMakes() as $make){
-                                                echo '<option value="'.$make['make'].'">'.$make['make'].'</option>';
-                                            }
-                                            ?>
-                                        </select>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span>
-                                        <span>Price</span>
-                                        <select id="price" onchange="orderBy(this);">
-                                            <option selected></option>
-                                            <option value="ASC">Low - High</option>
-                                            <option value="DESC">High - low</option>
-                                        </select>
-                                    </span>
-                                </li>
-                            </ul>
+                                        } else{
+                                            echo '<p class="col-12">No Vehicles found<br><small>Try changing the filters</small></p>';
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
-                    </aside>
-                    <section class="col-sm-9">
-                        <div class="inner">
-                            <div id="searchResults" class="row">
-                                <?php
-                                foreach($vehicleList as $vehicle){
-                                    echo '<article class="col-lg-4">';
-                                    echo '<a href="./vehicleDetails.php">';
-                                    echo '<div class="card hero">';
-                                    echo '<header>'.$vehicle->make.' '.$vehicle->model.'</header>';
-                                    echo '<picture><img src="img/'.$vehicle->image.'" alt="'.$vehicle->make.' '.$vehicle->model.'"></picture>';
-                                    echo '<footer>£'.$vehicle->getPrice().'</footer>';
-                                    echo '</div>';
-                                    echo '</a>';
-                                    echo '</article>';
-                                    
-                                }
-                                ?>
-                            </div>
-                        </div>
-                    </section>
+                    </div>
                 </div>
             </div>
         </div>

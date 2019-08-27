@@ -1,5 +1,15 @@
 $(function () {
     $(document).ready(function(){
+        $("#carFilters").slideUp(0);
+        if(window.location.href.indexOf("?type") > -1){
+            $("#carFilters").slideDown();
+            $("html, body").animate({
+                scrollTop: $("#carFilters").offset().top
+            },1000);
+        } else{
+            $("#carFilters").slideUp();
+        }
+        
         var cfi;
         var currentFilters = window.location.href;
         if(window.location.href.indexOf("?") > -1){

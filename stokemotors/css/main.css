@@ -17,6 +17,7 @@ body > header{
 main{
     background-color: white;
     color: black;
+    min-height: calc(100vh - 100px);
 }
 
 main header.search{
@@ -141,10 +142,55 @@ main section article .card.hero footer{
     bottom: 0;
 }
 
+#vehicle header{
+    position: relative;
+    height: 8rem;
+}
+
+#vehicle header picture{
+    margin-right: 15px;
+}
+
+#vehicle header img{
+    height: 100%;
+}
+
+#vehicle header h3{
+    display: inline;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#vehicle article > picture img{
+    width: 75%;
+}
+
+#spec > div{
+    padding: 15px;
+}
+
+#spec table{
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.btn{
+    background-color: darkblue;
+    color: white !important;
+    border-radius: 5px;
+}
+
 body > footer{
     height: 60px;
 }
 
+
+@media only screen and (min-width:576px){
+    #vehicle section:first-child{
+        border-right: .5px solid rgba(0,0,0,.1)
+    }
+}
 
 @media only screen and (max-width:575px){
     main section .inner{
@@ -168,9 +214,41 @@ body > footer{
         height: auto;
         max-width: 100%;
         position: relative;
+        top: auto;
         left: auto;
         right: auto;
         transform: none;
+    }
+    
+    #vehicle section:first-child{
+        border-bottom: .5px solid rgba(0,0,0,.1)
+    }
+    
+    #vehicle header{
+        height: auto;
+    }
+    
+    #vehicle header h3{
+        position: relative;
+        display: block;
+        top: 0;
+        transform: translateY(0);
+    }
+
+    #vehicle header picture, #vehicle article > picture img{
+        height: auto;
+        width: inherit;
+    }
+    
+    #vehicle header picture {
+        display: block;
+        width: 60%;
+        margin: 0 auto
+    }
+    
+    #vehicle header img {
+        width: 100%;
+        height: auto;
     }
 }
 

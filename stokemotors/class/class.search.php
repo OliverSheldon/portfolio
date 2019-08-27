@@ -19,6 +19,7 @@ class Search{
             $params = array(
                 'table' => 'vehicle',
                 'fields' => array(
+                    'vehicleID',
                     'wheels',
                     'doors',
                     'price',
@@ -75,6 +76,7 @@ class Search{
             $params = array(
                 'table' => 'vehicle',
                 'fields' => array(
+                    'vehicleID',
                     'wheels',
                     'doors',
                     'price',
@@ -134,6 +136,7 @@ class Search{
         $params = array(
             'table' => 'vehicle',
             'fields' => array(
+                    'vehicleID',
                     'wheels',
                     'doors',
                     'price',
@@ -344,6 +347,91 @@ class Search{
             );
 
         return $this->db->select($params);
+    }
+    
+     public function getDoors(){
+            $params = array(
+                'table' => 'vehicle',
+                'distinct' => true,
+                'fields' => array(
+                    'doors'
+                ),
+                'order' => array(
+                    array(
+                            'field' => 'doors',
+                            'direction' => 'ASC'
+                        )
+                    )
+                
+            );
+
+        return $this->db->select($params);
+    }
+    
+    public function getVehicle($id){
+        $params = array(
+            'table' => 'vehicle',
+            'fields' => array(
+                    'vehicleID',
+                    'wheels',
+                    'doors',
+                    'price',
+                    'type',
+                    'model',
+                    'year',
+                    'image',
+                    'make',
+                    'badge_img',
+                    'fuel'
+                ),
+            'joins' => array(
+                        array(
+                            'join'=>'type',
+                            'tables'=>
+                            array(
+                                'vehicle',
+                                'type'
+                            ),
+                            'id' => 'typeID'
+                        ),
+                        array(
+                            'join'=>'model',
+                            'tables'=>
+                            array(
+                                'vehicle',
+                                'model'
+                            ),
+                            'id' => 'modelID'
+                        ),
+                        array(
+                            'join'=>'make',
+                            'tables'=>
+                            array(
+                                'vehicle',
+                                'make'
+                            ),
+                            'id' => 'makeID'
+                        ),
+                        array(
+                            'join'=>'fuel',
+                            'tables'=>
+                            array(
+                                'vehicle',
+                                'fuel'
+                            ),
+                            'id' => 'fuelID'
+                        )
+                    ),
+            'conditions' => array(
+                'vehicleID' => $id
+            )
+        );
+        $result = $this->db->select($params);
+        
+        if($result != null){
+        return new Vehicle($result[0]);
+        }
+        return null;
     }
     
     

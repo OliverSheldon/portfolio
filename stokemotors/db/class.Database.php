@@ -21,10 +21,13 @@ class Database{
     
     public function select($params){
         $stmt =  $this->dbConn->stmt_init();
-        $sql = 'SELECT ' .
+        $sql = 'SELECT ';
+        if(isset($params['distinct']) && $params['distinct'] == true){
+            $sql .= 'DISTINCT ';
+        }
+        $sql .=
             implode(', ', $this->getFields($params['fields'])) .
-            ' FROM ' . $this->prepareInnerJoin($params)
-        ;
+            ' FROM ' . $this->prepareInnerJoin($params);
         
         if(isset($params['conditions'])) {
             $sql .= $this->getWhere(

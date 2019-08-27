@@ -1,6 +1,7 @@
 <?php
 class Vehicle{
     
+    public $vehicleID;
     public $wheels;
     public $doors;
     protected $price;
@@ -14,6 +15,7 @@ class Vehicle{
     
     public function __construct($vehicle = null){
         if($vehicle != null){
+            $this->vehicleID = $vehicle['vehicleID'];
             $this->wheels = $vehicle['wheels'];
             $this->doors = $vehicle['doors'];
             $this->price = $vehicle['price'];

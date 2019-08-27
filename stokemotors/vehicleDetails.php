@@ -1,25 +1,14 @@
 <?php
+require_once(dirname(__FILE__) . "/class/class.search.php");
+
+$search = new Search();
+
 $vehicle=null;
 
-if(!isset($_SESSION)){
-    session_start();
-
-    /*if(!isset($_SESSION['currentVehicle'])){
-        $_SESSION['currentVehicle'] = $this;
-    }*/
-} else{
-    if(isset($_SESSION['currentVehicle'])){
-        /*$this->wheels = $_SESSION['currentVehicle']->wheels;
-        $this->doors = $_SESSION['currentVehicle']->doors;
-        $this->price = $_SESSION['currentVehicle']->price;
-        $this->type = $_SESSION['currentVehicle']->type;
-        $this->model = $_SESSION['currentVehicle']->model;
-        $this->year = $_SESSION['currentVehicle']->year;
-        $this->make = $_SESSION['currentVehicle']->make;
-        $this->badge_img = $_SESSION['currentVehicle']->badge_img;
-        $this->fuel = $_SESSION['currentVehicle']->fuel;*/
-        $vehicle = $_SESSION['currentVehicle'];
-    } 
+if($_GET){
+    if($_GET["v"]){
+        $vehicle = $search->getVehicle($_GET["v"]);
+    }
 }
 ?>
 <!Doctype html>
@@ -43,18 +32,53 @@ if(!isset($_SESSION)){
     <main class="container-fluid">
         <div class="main-wrapper">
             <div class="container">
-                <div class="row">
-                    <section class="col-xs-12">
-                        <?php
-                        if($vehicle != null){
-                            echo '<div class="card hero">';
-                            echo '<h2>'.$vehicle->make.' '.$vehicle->model.'</header>';
+                <div id="vehicle" class="row">
+                    <section class="col-sm-6">
+                       <?php
+                        if($vehicle != null && $vehicle->vehicleID != null){
+                            echo '<article>';
+                            echo '<header><picture><img src="img/'.$vehicle->badge_img.'" alt="'.$vehicle->make.'"></picture><h3>'.$vehicle->make.' '.$vehicle->model.'</h3></header>';
                             echo '<picture><img src="img/'.$vehicle->image.'" alt="'.$vehicle->make.' '.$vehicle->model.'"></picture>';
-                            echo '<h3>£'.$vehicle->getPrice().'</footer>';
-                            echo '</div>';
+                            echo '</article>';
+                        } else{
+                            echo '<h2>Error - Vehicle Not Found</h2>';
                         }
                         ?>
                     </section>
+                    <section class="col-sm-6">
+                        <article id="spec">
+                            <?php
+                            if($vehicle != null && $vehicle->vehicleID != null){
+                            ?>
+                            <header><h3>Specification</h3></header>
+                            <div>
+                                <table>
+                                    <tr>
+                                        <td>Price</td>
+                                        <td>£<?php echo $vehicle->getPrice();?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Doors</td>
+                                        <td><?php echo $vehicle->doors;?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wheels</td>
+                                        <td><?php echo $vehicle->wheels;?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fuel</td>
+                                        <td><?php echo $vehicle->fuel;?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Year</td>
+                                        <td><?php echo $vehicle->year;?></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <?php } ?>
+                        </article>
+                    </section>
+                    <a href="./" class="btn col-12 col-md-3 col-lg-2">Back to search</a>
                 </div>
             </div>
         </div>
