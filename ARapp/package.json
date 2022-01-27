@@ -20,7 +20,7 @@
     "lodash": "^4.17.5",
     "material-components-web": "^0.34.1",
     "save": "^2.3.2",
-    "three": "^0.90.0",
+    "three": "^0.137.0",
     "three-orbit-controls": "^82.1.0",
     "vinyl-source-stream": "^2.0.0"
   },
